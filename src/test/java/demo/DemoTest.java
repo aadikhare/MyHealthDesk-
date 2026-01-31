@@ -15,7 +15,6 @@ public class DemoTest extends BaseClass {
 	
 	@Test 
 	public void ValidURLTest() throws Exception  {
-		System.out.println("hellow");
 		
 	}
 	 
