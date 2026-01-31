@@ -84,7 +84,7 @@ public class DemoTest extends BaseClass {
 		wlib.scrollByAmount(driver, 0, 200);
 		homepage.getPatientLoginBtn().click();
 		wlib.moveControlToWindow(driver, "user-login");
-		patientLoginPage.getBtnsubmit().click();
+		patientLoginPage.getLoginBtn().click();
 		driver.close();
 		wlib.moveControlToWindow(driver, "logins");
 		
