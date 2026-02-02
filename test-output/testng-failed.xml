@@ -7,6 +7,23 @@
         <methods>
           <include name="configBS"/>
           <include name="configAS"/>
+<<<<<<< HEAD
+          <include name="AboutUsLinkTest"/>
+          <include name="LoginsLinkTest"/>
+          <include name="GalleryLinkTest"/>
+          <include name="ContactUsLinkTest"/>
+          <include name="PasswordTest"/>
+          <include name="ServicesLinkTest"/>
+          <include name="PatientLoginBtnTest"/>
+          <include name="configBC"/>
+          <include name="configAC"/>
+          <include name="UsernameTest"/>
+          <include name="BookAnAppointmentBtnTest"/>
+          <include name="BtnsubmitTest"/>
+          <include name="configBM"/>
+          <include name="configAM"/>
+          <include name="ValidURLTest"/>
+=======
           <include name="doctorprofileUpdateLinkTest"/>
           <include name="patientupdategenderProfileTest"/>
           <include name="patientUsernameTest"/>
@@ -21,6 +38,7 @@
           <include name="configAM"/>
           <include name="patientForgotPasswordLinkTest"/>
           <include name="patientupdateProfileTest"/>
+>>>>>>> branch 'master' of https://github.com/aadikhare/MyHealthDesk-.git
         </methods>
       </class> <!-- demo.DemoTest -->
     </classes>
