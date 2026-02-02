@@ -12,7 +12,7 @@ public class UserDashboardPage {
 		PageFactory.initElements(driver,this);
 	}
 	
-	@FindBy(xpath="//span[text()='Dashboard']")
+	@FindBy(xpath="//span[contains(text(),'Dashboard')]")
 	private WebElement DashbordLink;
 	
 	@FindBy(xpath="//span[text()='Book Appointment']")
@@ -26,6 +26,14 @@ public class UserDashboardPage {
 	
 	@FindBy(xpath="//a[contains(text(),'Update Profile')]")
 	private WebElement UpdateProfileLink ;
+	
+	@FindBy(xpath="//span[@class='username']")
+	private WebElement LogoutLogo;
+	
+	@FindBy(xpath="//a[contains(text(),'Log Out')]")
+	private WebElement LogoutLink;
+
+	
 	public WebElement getDashbordLink() {
 		return DashbordLink;
 	}
@@ -46,5 +54,17 @@ public class UserDashboardPage {
 		return UpdateProfileLink;
 	}
 	
+	public WebElement getLogoutLogo() {
+		return LogoutLogo;
+	}
 
+	public WebElement getLogoutLink() {
+		return LogoutLink;
+	}
+	
+	public void Patientlogout() {
+		LogoutLogo.click();
+		LogoutLink.click();
+
+}
 }

@@ -25,6 +25,9 @@ public class PatientLoginPage {
 
 	@FindBy(xpath = "//a[contains(text(),'Forgot Password ?')]")
 	private WebElement ForgotPasswordLink;
+	
+	
+	
 
 	public WebElement getUsername() {
 		return Username;
@@ -42,4 +45,12 @@ public class PatientLoginPage {
 		return ForgotPasswordLink;
 	}
 
+	public void PatientLogin() {
+		Username.sendKeys("adminab@test.com");
+		Password.sendKeys("Test@12345");
+		LoginBtn.click();
+	}
+	
+	
+	
 }

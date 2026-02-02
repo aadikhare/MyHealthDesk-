@@ -16,8 +16,12 @@ import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webDriverUtility.JavaUtility;
 import com.comcast.crm.generic.webDriverUtility.WebDriverUtility;
+import com.comcast.crm.objectrepositoryutility.DoctorDashboardPage;
+import com.comcast.crm.objectrepositoryutility.DoctorLoginPage;
 import com.comcast.crm.objectrepositoryutility.HomePage;
 import com.comcast.crm.objectrepositoryutility.PatientLoginPage;
+import com.comcast.crm.objectrepositoryutility.UserDashboardPage;
+import com.comcast.crm.objectrepositoryutility.UserEditProfile;
 
 import java.io.IOException;
 
@@ -37,7 +41,13 @@ public class BaseClass {
 	public int randomNum=javaLib.getRandomNumber();
 	public HomePage homepage;
 	public PatientLoginPage patientLoginPage;
+	public DoctorLoginPage doctorLoginPage;
+	public DoctorDashboardPage doctorDashboardPage;
+	public UserDashboardPage userDashboardPage;
+	public UserEditProfile userEditProfile;
 	public DatabaseUtility dbLib = new DatabaseUtility();
+	
+	
 	
 	@BeforeSuite
 	public void configBS() {
@@ -68,6 +78,10 @@ public class BaseClass {
 		    wlib.waitForPageToLoad(driver);
 	 homepage = new HomePage(driver);
 	 patientLoginPage = new PatientLoginPage(driver);
+	 doctorLoginPage=new DoctorLoginPage(driver);
+	 doctorDashboardPage = new DoctorDashboardPage(driver);
+	 userDashboardPage = new UserDashboardPage(driver);
+	 userEditProfile =new UserEditProfile(driver);
 		
 	}
 	
@@ -81,7 +95,7 @@ public class BaseClass {
 	
 	@AfterClass
 	public void configAC() {
-	driver.quit();
+	//driver.quit();
 	}
 	@AfterSuite
 	public void configAS() {

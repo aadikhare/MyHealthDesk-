@@ -1,9 +1,13 @@
 package demo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.comcast.crm.basetest.BaseClass;
+import com.comcast.crm.objectrepositoryutility.DoctorDashboardPage;
+import com.comcast.crm.objectrepositoryutility.DoctorLoginPage;
 import com.comcast.crm.objectrepositoryutility.HomePage;
 import com.comcast.crm.objectrepositoryutility.PatientLoginPage;
 import com.comcast.crm.objectrepositoryutility.PatientPasswordRecoveryPage;
@@ -45,8 +49,11 @@ public class DemoTest extends BaseClass {
 		public void BookAnAppointmentBtnTest() throws Exception  {
 		homepage.getBookAnAppointmentBtn().click();
 		}
+	
+	/* PATIENT MODULE */
+	
 	@Test
-		public void PatientLoginBtnTest() throws Exception  {
+		public void patientLoginBtnTest() throws Exception  {
 		
 		wlib.scrollByAmount(driver, 0, 700);
 		homepage.getPatientLoginBtn().click();
@@ -57,39 +64,275 @@ public class DemoTest extends BaseClass {
 		
 	}
 	@Test
-	public void UsernameTest() throws Exception  {
+	public void patientUsernameTest() throws Exception  {
 		homepage.getLoginsLink().click();
 		wlib.scrollByAmount(driver, 0, 200);
 		homepage.getPatientLoginBtn().click();
 		wlib.moveControlToWindow(driver, "user-login");
 		patientLoginPage.getUsername().sendKeys("");
 		driver.close();
-		wlib.moveControlToWindow(driver, "logins");
+	wlib.moveControlToWindow(driver, "logins");
 	}
 	@Test
-	public void PasswordTest() throws Exception  {
+	public void patientPasswordTest() throws Exception  {
 		homepage.getLoginsLink().click();
 		wlib.scrollByAmount(driver, 0, 200);
 		homepage.getPatientLoginBtn().click();
 		wlib.moveControlToWindow(driver, "user-login");
 		patientLoginPage.getPassword().sendKeys("");
 		driver.close();
-		wlib.moveControlToWindow(driver, "logins");
+	wlib.moveControlToWindow(driver, "logins");
 		
 	}
 	
 	@Test
-	public void BtnsubmitTest() throws Exception  {
-		homepage.getLoginsLink().click();
-		wlib.scrollByAmount(driver, 0, 200);
-		homepage.getPatientLoginBtn().click();
-		wlib.moveControlToWindow(driver, "user-login");
-		patientLoginPage.getLoginBtn().click();
-		driver.close();
-		wlib.moveControlToWindow(driver, "logins");
+	public void patientPageLoginBtnTest() throws Exception  {
 		
+	
+		 homepage.getLoginsLink().click();
+		  wlib.scrollByAmount(driver, 0, 200);
+		  homepage.getPatientLoginBtn().click();
+		  wlib.moveControlToWindow(driver,"user-login"); 
+		  
+		  patientLoginPage.getLoginBtn().click();
+		  driver.close();
+		  wlib.moveControlToWindow(driver, "logins");
+	
+	
+}
+	
+	@Test
+	public void patientForgotPasswordLinkTest() throws Exception  {
+		
+	
+		homepage.getLoginsLink().click();
+		  wlib.scrollByAmount(driver, 0, 200);
+		  homepage.getPatientLoginBtn().click();
+		  wlib.moveControlToWindow(driver,"user-login"); 
+		  
+		  patientLoginPage.getForgotPasswordLink().click();
+		  driver.close();
+		  wlib.moveControlToWindow(driver, "logins");		
+}
+	
+	@Test
+	public void patientLoginTest() throws Exception  {
+		
+	
+		homepage.getLoginsLink().click();
+		  wlib.scrollByAmount(driver, 0, 200);
+		  homepage.getPatientLoginBtn().click();
+		  wlib.moveControlToWindow(driver,"user-login"); 
+		  
+		  patientLoginPage.PatientLogin();
+		  driver.close();
+		  wlib.moveControlToWindow(driver, "logins");		
+}
+	
+	@Test
+	public void patientLogoutTest() throws Exception {
+	homepage.getLoginsLink().click();
+	wlib.scrollByAmount(driver, 0, 200);
+	homepage.getPatientLoginBtn().click();
+	wlib.moveControlToWindow(driver,"user-login");
+	patientLoginPage.PatientLogin();
+	userDashboardPage.Patientlogout();
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+
+
 	}
-//		
+	
+	@Test
+	public void patientupdateProfileTest() throws Exception {
+	homepage.getLoginsLink().click();
+	wlib.scrollByAmount(driver, 0, 200);
+	homepage.getPatientLoginBtn().click();
+	wlib.moveControlToWindow(driver,"user-login");
+	patientLoginPage.PatientLogin();
+	userDashboardPage.getUpdateProfileLink().click();
+	userEditProfile.getAddress().clear();
+	userEditProfile.getAddress().sendKeys("pune");
+	wlib.scrollByAmount(driver, 0, 400);
+	userEditProfile.getUpdateBtn().click();
+	userDashboardPage.getDashbordLink().click();
+	userDashboardPage.getUpdateProfileLink().click();
+	Assert.assertTrue(userEditProfile.getAddress().getText().contains("pune"));
+	
+	
+	
+	
+	
+	
+	
+	userDashboardPage.Patientlogout();
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+
+
+	}
+	
+	@Test
+	public void patientupdategenderProfileTest() throws Exception {
+	homepage.getLoginsLink().click();
+	wlib.scrollByAmount(driver, 0, 200);
+	homepage.getPatientLoginBtn().click();
+	wlib.moveControlToWindow(driver,"user-login");
+	patientLoginPage.PatientLogin();
+	userDashboardPage.getUpdateProfileLink().click();
+	WebElement we=userEditProfile.getGender();
+	wlib.scrollByAmount(driver, 0, 400);
+	wlib.selectOptions(we,"Male");
+	
+	userEditProfile.getUpdateBtn().click();
+	userDashboardPage.getDashbordLink().click();
+	userDashboardPage.getUpdateProfileLink().click();
+	Assert.assertTrue(userEditProfile.getGender().getText().contains("Male"));
+	userDashboardPage.Patientlogout();
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+
+
+	}
+	
+	
+	
+	/* DOCTOR MODULE */
+	
+	@Test
+	public void doctorLoginBtnTest() throws Exception  {
+	
+	wlib.scrollByAmount(driver, 0, 700);
+	homepage.getDoctorLoginBtn().click();;
+	wlib.moveControlToWindow(driver, "Doctor");
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+	
+	
+}
+	
+	
+	
+@Test
+public void doctorUsernameTest() throws Exception  {
+	homepage.getLoginsLink().click();
+	wlib.scrollByAmount(driver, 0, 200);
+	homepage.getDoctorLoginBtn().click();
+	wlib.moveControlToWindow(driver, "Doctor");
+	doctorLoginPage.getUsername().sendKeys("");
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+}
+@Test
+public void doctorPasswordTest() throws Exception  {
+	homepage.getLoginsLink().click();
+	wlib.scrollByAmount(driver, 0, 200);
+	homepage.getDoctorLoginBtn().click();
+	System.out.println(driver.getTitle());
+	wlib.moveControlToWindow(driver, "Doctor");
+	System.out.println(driver.getTitle());
+	doctorLoginPage.getPassword().sendKeys("");
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+	
+}
+
+@Test
+  public void doctorPageLoginBtnTest() throws Exception {
+  homepage.getLoginsLink().click();
+  wlib.scrollByAmount(driver, 0, 200);
+  homepage.getDoctorLoginBtn().click();
+  wlib.moveControlToWindow(driver,"Doctor"); 
+  
+  doctorLoginPage.getLoginBtn().click(); driver.close();
+  wlib.moveControlToWindow(driver, "logins");
+  
+  }
+
+@Test
+public void doctorForgotPasswordLinkTest() throws Exception {
+homepage.getLoginsLink().click();
+wlib.scrollByAmount(driver, 0, 200);
+homepage.getDoctorLoginBtn().click();
+wlib.moveControlToWindow(driver,"Doctor"); 
+
+doctorLoginPage.getForgotPasswordLink().click();
+driver.close();
+wlib.moveControlToWindow(driver, "logins");
+
+}
+ 
+@Test
+public void doctorLoginTest() throws Exception {
+homepage.getLoginsLink().click();
+wlib.scrollByAmount(driver, 0, 200);
+homepage.getDoctorLoginBtn().click();
+wlib.moveControlToWindow(driver,"Doctor");
+doctorLoginPage.doctorLogin();
+driver.close();
+wlib.moveControlToWindow(driver, "logins");
+
+
+}
+
+@Test
+public void doctorLogoutTest() throws Exception {
+homepage.getLoginsLink().click();
+wlib.scrollByAmount(driver, 0, 200);
+homepage.getDoctorLoginBtn().click();
+wlib.moveControlToWindow(driver,"Doctor");
+doctorLoginPage.doctorLogin();
+doctorDashboardPage.doctorlogout();
+driver.close();
+wlib.moveControlToWindow(driver, "logins");
+
+
+}
+
+//@Test
+//public void doctorprofileUpdateLinkTest() throws Exception {
+//homepage.getLoginsLink().click();
+//wlib.scrollByAmount(driver, 0, 200);
+//homepage.getDoctorLoginBtn().click();
+//wlib.moveControlToWindow(driver,"Doctor");
+//doctorLoginPage.doctorLogin();
+//Thread.sleep(4000);
+//wlib.switchToAlert(driver);
+//doctorDashboardPage.getUpdateProfileLink().click();
+//doctorDashboardPage.doctorlogout();
+//driver.close();
+//wlib.moveControlToWindow(driver, "logins");
+//
+//
+//}
+
+@Test
+public void Test() throws Exception {
+homepage.getLoginsLink().click();
+wlib.scrollByAmount(driver, 0, 200);
+homepage.getDoctorLoginBtn().click();
+wlib.moveControlToWindow(driver,"Doctor");
+doctorLoginPage.doctorLogin();
+//Thread.sleep(4000);
+
+//wlib.switchToAlert(driver);
+//doctorDashboardPage.getUpdateProfileLink().click();
+
+
+//doctorDashboardPage.doctorlogout();
+driver.close();
+wlib.moveControlToWindow(driver, "logins");
+
+
+}
+
+
+
+
+
+
+
+	
 //		
 		
 //		//homepage.getDoctorLoginBtn().click();
@@ -125,5 +368,5 @@ public class DemoTest extends BaseClass {
 		
 		
 	}
-
+	
 

@@ -1,7 +1,9 @@
 package com.comcast.crm.generic.webDriverUtility;
 
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
@@ -44,6 +46,13 @@ public class WebDriverUtility {
 	WebDriver driver1;
 	ChromeOptions options = new ChromeOptions();
     options.addArguments("--disable-notifications");
+    options.addArguments("--disable-features=PasswordManagerEnabled");
+    options.addArguments("--disable-save-password-bubble");
+    options.setExperimentalOption("prefs", Map.of(
+        "credentials_enable_service", false,
+        "profile.password_manager_enabled", false
+    ));
+
 		
 		if(BROWSER.equals("firefox")) {
 			driver1=new FirefoxDriver();
