@@ -314,7 +314,6 @@ homepage.getDoctorLoginBtn().click();
 wlib.moveControlToWindow(driver,"Doctor");
 doctorLoginPage.doctorLogin();
 //Thread.sleep(4000);
-
 //wlib.switchToAlert(driver);
 //doctorDashboardPage.getUpdateProfileLink().click();
 
