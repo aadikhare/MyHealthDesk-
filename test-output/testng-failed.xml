@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="demo.DemoTest">
+        <methods>
+          <include name="configBS"/>
+          <include name="configAS"/>
+          <include name="AboutUsLinkTest"/>
+          <include name="LoginsLinkTest"/>
+          <include name="GalleryLinkTest"/>
+          <include name="ContactUsLinkTest"/>
+          <include name="PasswordTest"/>
+          <include name="ServicesLinkTest"/>
+          <include name="PatientLoginBtnTest"/>
+          <include name="configBC"/>
+          <include name="configAC"/>
+          <include name="UsernameTest"/>
+          <include name="BookAnAppointmentBtnTest"/>
+          <include name="BtnsubmitTest"/>
+          <include name="configBM"/>
+          <include name="configAM"/>
+          <include name="ValidURLTest"/>
+        </methods>
+      </class> <!-- demo.DemoTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
