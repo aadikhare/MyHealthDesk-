@@ -12,9 +12,17 @@ public class DoctorDashboardPage {
 		PageFactory.initElements(driver,this);
 	}
 	
-	@FindBy(xpath="//span[text()='Dashboard']")
+	@FindBy(xpath="//span[contains(text(),'Dashboard')]")
 	private WebElement DashbordLink;
 	
+	@FindBy(xpath="//a[contains(text(),'Update Profile')]")
+	private WebElement UpdateProfileLink ;
+	
+	
+	public WebElement getUpdateProfileLink() {
+		return UpdateProfileLink;
+	}
+
 	@FindBy(xpath="//span[contains(text(),'Appointment History')]")
 	private WebElement AppointmentHistoryLink;
 	
@@ -29,6 +37,13 @@ public class DoctorDashboardPage {
 	
 	@FindBy(xpath="//span[contains(text(),' Search ')]")
 	private WebElement SearchLink ;
+	
+	@FindBy(xpath="//span[@class='username']")
+	private WebElement LogoutLogo;
+	
+	@FindBy(xpath="//a[contains(text(),'Log Out')]")
+	private WebElement LogoutLink;
+	
 	public WebElement getDashbordLink() {
 		return DashbordLink;
 	}
@@ -53,5 +68,17 @@ public class DoctorDashboardPage {
 		return SearchLink;
 	}
 	
+	public WebElement getLogoutLink() {
+		return LogoutLink;
+	}
+
+	public WebElement getLogoutLogo() {
+		return LogoutLogo;
+	}
+	
+	public void doctorlogout() {
+		LogoutLogo.click();
+		LogoutLink.click();
+	}
 
 }
