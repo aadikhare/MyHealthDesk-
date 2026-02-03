@@ -144,6 +144,27 @@ public class DemoTest extends BaseClass {
 	}
 	
 	@Test
+	public void userqueryTest() throws Exception {
+	homepage.getEnterNameTextField().sendKeys("abc");
+    homepage.getEmailAddress().sendKeys("abc@123");
+    homepage.getMobileNumber().sendKeys("9876543210");
+    homepage.getEnterMessage().sendKeys("NA");
+    wlib.scrollByAmount(driver,0,200);
+    homepage.getSendMessageBtn().click();
+    Thread.sleep(2000);
+    wlib.switchToAlert(driver);
+    wlib.moveControlToWindow(driver,"index");
+    homepage.getLoginsLink().click();
+    wlib.scrollByAmount(driver, 0, 200);
+   homepage.getAdminLoginBtn().click();
+   wlib.moveControlToWindow(driver,"Admin");
+    adminLoginPage.adminLogin();
+    
+    
+    
+	}
+	
+	@Test
 	public void patientupdateProfileTest() throws Exception {
 	homepage.getLoginsLink().click();
 	wlib.scrollByAmount(driver, 0, 200);
@@ -158,12 +179,6 @@ public class DemoTest extends BaseClass {
 	userDashboardPage.getDashbordLink().click();
 	userDashboardPage.getUpdateProfileLink().click();
 	Assert.assertTrue(userEditProfile.getAddress().getText().contains("pune"));
-	
-	
-	
-	
-	
-	
 	
 	userDashboardPage.Patientlogout();
 	driver.close();
@@ -306,22 +321,23 @@ wlib.moveControlToWindow(driver, "logins");
 //
 //}
 
-@Test
-public void Test() throws Exception {
-homepage.getLoginsLink().click();
-wlib.scrollByAmount(driver, 0, 200);
-homepage.getDoctorLoginBtn().click();
-wlib.moveControlToWindow(driver,"Doctor");
-doctorLoginPage.doctorLogin();
-//Thread.sleep(4000);
-//wlib.switchToAlert(driver);
+//@Test
+//public void Test() throws Exception {
+//	
+//homepage.getLoginsLink().click();
+//wlib.scrollByAmount(driver, 0, 200);
+//homepage.getDoctorLoginBtn().click();
+//wlib.moveControlToWindow(driver,"Doctor");
+//doctorLoginPage.doctorLogin();
+////Thread.sleep(4000);
+////wlib.switchToAlert(driver);
 //doctorDashboardPage.getUpdateProfileLink().click();
-
-
+//
+//
 //doctorDashboardPage.doctorlogout();
-driver.close();
-wlib.moveControlToWindow(driver, "logins");
-
+//driver.close();
+//wlib.moveControlToWindow(driver, "logins");
+//
 
 }
 
@@ -334,8 +350,8 @@ wlib.moveControlToWindow(driver, "logins");
 	
 //		
 		
-//		//homepage.getDoctorLoginBtn().click();
-		//homepage.getAdminLoginBtn().click();
+//		
+		
 //		homepage.getEnterNameTextField().sendKeys("abc");
 //		homepage.getEmailAddress().sendKeys("abc@123");
 //		homepage.getMobileNumber().sendKeys("9876543210");
@@ -366,6 +382,7 @@ wlib.moveControlToWindow(driver, "logins");
 		
 		
 		
-	}
+
+
 	
 

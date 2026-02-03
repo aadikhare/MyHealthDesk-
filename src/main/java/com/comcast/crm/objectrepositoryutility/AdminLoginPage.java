@@ -45,6 +45,13 @@ public class AdminLoginPage {
 			return BactoHomePageLink;
 		}
 		
+		public void adminLogin() {
+			Username.sendKeys("admin");
+			Password.sendKeys("Test@12345");
+			LoginBtn.click();
+			
+		}
+		
 		
 		
 }

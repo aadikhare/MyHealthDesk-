@@ -43,16 +43,12 @@ public class WebDriverUtility {
 	
 	public WebDriver openWebBrowser(WebDriver driver, String BROWSER) {
       
-	WebDriver driver1;
+	
 	ChromeOptions options = new ChromeOptions();
-    options.addArguments("--disable-notifications");
-    options.addArguments("--disable-features=PasswordManagerEnabled");
-    options.addArguments("--disable-save-password-bubble");
-    options.setExperimentalOption("prefs", Map.of(
-        "credentials_enable_service", false,
-        "profile.password_manager_enabled", false
-    ));
-
+	options.addArguments("--disable-features=PasswordLeakDetection");
+	options.addArguments("--disable-save-password-bubble");
+	options.addArguments("--disable-notifications");
+	WebDriver driver1;
 		
 		if(BROWSER.equals("firefox")) {
 			driver1=new FirefoxDriver();

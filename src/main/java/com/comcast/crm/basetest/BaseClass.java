@@ -16,6 +16,7 @@ import com.comcast.crm.generic.fileutility.ExcelUtility;
 import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webDriverUtility.JavaUtility;
 import com.comcast.crm.generic.webDriverUtility.WebDriverUtility;
+import com.comcast.crm.objectrepositoryutility.AdminLoginPage;
 import com.comcast.crm.objectrepositoryutility.DoctorDashboardPage;
 import com.comcast.crm.objectrepositoryutility.DoctorLoginPage;
 import com.comcast.crm.objectrepositoryutility.HomePage;
@@ -45,6 +46,7 @@ public class BaseClass {
 	public DoctorDashboardPage doctorDashboardPage;
 	public UserDashboardPage userDashboardPage;
 	public UserEditProfile userEditProfile;
+	public AdminLoginPage adminLoginPage;
 	public DatabaseUtility dbLib = new DatabaseUtility();
 	
 	
@@ -82,6 +84,7 @@ public class BaseClass {
 	 doctorDashboardPage = new DoctorDashboardPage(driver);
 	 userDashboardPage = new UserDashboardPage(driver);
 	 userEditProfile =new UserEditProfile(driver);
+	 adminLoginPage= new AdminLoginPage(driver);
 		
 	}
 	
