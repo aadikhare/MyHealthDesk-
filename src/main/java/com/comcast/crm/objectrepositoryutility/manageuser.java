@@ -19,6 +19,9 @@ public class manageuser {
 	
 	@FindBy(xpath = "//a[@href=\"manage-users.php?id=7&del=delete\"]")
 	WebElement totaluserdelete;
+	
+	@FindBy(xpath = "//td[text()='Patient11']/ancestor::tr/descendant::a[@class]")
+	WebElement DeleteNewUser;
 
 	public WebElement getTotaluserdelete() {
 		return totaluserdelete;
@@ -31,5 +34,11 @@ public class manageuser {
 	public WebElement getMnguserdelete() {
 		return mnguserdelete;
 	}
+
+	public WebElement getDeleteNewUser() {
+		return DeleteNewUser;
+	}
+	
+	
 
 }

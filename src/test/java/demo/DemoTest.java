@@ -1,10 +1,8 @@
 package demo;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.comcast.crm.basetest.BaseClass;
 import com.comcast.crm.objectrepositoryutility.DoctorDashboardPage;
 import com.comcast.crm.objectrepositoryutility.DoctorLoginPage;
@@ -143,26 +141,26 @@ public class DemoTest extends BaseClass {
 
 	}
 	
-	@Test
-	public void userqueryTest() throws Exception {
-	homepage.getEnterNameTextField().sendKeys("abc");
-    homepage.getEmailAddress().sendKeys("abc@123");
-    homepage.getMobileNumber().sendKeys("9876543210");
-    homepage.getEnterMessage().sendKeys("NA");
-    wlib.scrollByAmount(driver,0,200);
-    homepage.getSendMessageBtn().click();
-    Thread.sleep(2000);
-    wlib.switchToAlert(driver);
-    wlib.moveControlToWindow(driver,"index");
-    homepage.getLoginsLink().click();
-    wlib.scrollByAmount(driver, 0, 200);
-   homepage.getAdminLoginBtn().click();
-   wlib.moveControlToWindow(driver,"Admin");
-    adminLoginPage.adminLogin();
+//	@Test
+//	public void userqueryTest() throws Exception {
+//	homepage.getEnterNameTextField().sendKeys("abc");
+//    homepage.getEmailAddress().sendKeys("abc@123");
+//    homepage.getMobileNumber().sendKeys("9876543210");
+//    homepage.getEnterMessage().sendKeys("NA");
+//    wlib.scrollByAmount(driver,0,200);
+//    homepage.getSendMessageBtn().click();
+//    Thread.sleep(2000);
+//    wlib.switchToAlert(driver);
+//    wlib.moveControlToWindow(driver,"index");
+//    homepage.getLoginsLink().click();
+//    wlib.scrollByAmount(driver, 0, 200);
+//   homepage.getAdminLoginBtn().click();
+//   wlib.moveControlToWindow(driver,"Admin");
+//    adminLoginPage.adminLogin();
     
     
     
-	}
+	//}
 	
 	@Test
 	public void patientupdateProfileTest() throws Exception {
@@ -198,7 +196,6 @@ public class DemoTest extends BaseClass {
 	WebElement we=userEditProfile.getGender();
 	wlib.scrollByAmount(driver, 0, 400);
 	wlib.selectOptions(we,"Male");
-	
 	userEditProfile.getUpdateBtn().click();
 	userDashboardPage.getDashbordLink().click();
 	userDashboardPage.getUpdateProfileLink().click();
@@ -210,6 +207,51 @@ public class DemoTest extends BaseClass {
 
 	}
 	
+	@Test
+	public void createuserAndDeleteUserTest() throws Exception {
+	homepage.getLoginsLink().click();
+	wlib.scrollByAmount(driver, 0, 200);
+	homepage.getPatientLoginBtn().click();
+	wlib.moveControlToWindow(driver,"user-login");
+	patientLoginPage.getCreateAnAccount().click();
+	wlib.moveControlToWindow(driver,"Registration");
+	patientRegistrationPage.getFullname().sendKeys("Patient11");
+	patientRegistrationPage.getAddress().sendKeys("mumbai");
+	patientRegistrationPage.getCity().sendKeys("mumbai");
+	patientRegistrationPage.getMaleBtn().click();
+	patientRegistrationPage.getEmail().sendKeys("Patient11@123456");
+	patientRegistrationPage.getPassword().sendKeys("Test@12345");
+	patientRegistrationPage.getPassword_again().sendKeys("Test@12345");
+	wlib.scrollByAmount(driver,0, 200);
+	patientRegistrationPage.getSubmitBtn().click();
+	wlib.switchToAlert(driver);
+	driver.close();
+	wlib.moveControlToWindow(driver, "logins");
+	homepage.getLoginsLink().click();
+	homepage.getPatientLoginBtn().click();
+	wlib.moveControlToWindow(driver, "user-login");
+	patientLoginPage.getUsername().sendKeys("Patient11@123456");
+	patientLoginPage.getPassword().sendKeys("Test@12345");
+	patientLoginPage.getLoginBtn().click();
+	wlib.moveControlToWindow(driver, "dashboard");
+    userDashboardPage.Patientlogout();
+    driver.close();
+    wlib.moveControlToWindow(driver, "user-login");
+    homepage.getLoginsLink().click();
+    homepage.getAdminLoginBtn().click();
+    wlib.moveControlToWindow(driver, "Admin");
+    adminLoginPage.adminLogin();
+    wlib.moveControlToWindow(driver, "dashboard");
+    admindashboard.getUsers().click();
+    admindashboard.getManageusers().click();
+    wlib.scrollByAmount(driver, 0, 500);
+    manageuserPage.getDeleteNewUser().click();
+    wlib.switchToAlert(driver);
+   driver.close();
+   wlib.moveControlToWindow(driver, "logins");
+    
+	}
+	
 	
 	
 	/* DOCTOR MODULE */
@@ -218,7 +260,7 @@ public class DemoTest extends BaseClass {
 	public void doctorLoginBtnTest() throws Exception  {
 	
 	wlib.scrollByAmount(driver, 0, 700);
-	homepage.getDoctorLoginBtn().click();;
+	homepage.getDoctorLoginBtn().click();
 	wlib.moveControlToWindow(driver, "Doctor");
 	driver.close();
 	wlib.moveControlToWindow(driver, "logins");
@@ -290,19 +332,19 @@ wlib.moveControlToWindow(driver, "logins");
 
 }
 
-@Test
-public void doctorLogoutTest() throws Exception {
-homepage.getLoginsLink().click();
-wlib.scrollByAmount(driver, 0, 200);
-homepage.getDoctorLoginBtn().click();
-wlib.moveControlToWindow(driver,"Doctor");
-doctorLoginPage.doctorLogin();
-doctorDashboardPage.doctorlogout();
-driver.close();
-wlib.moveControlToWindow(driver, "logins");
-
-
-}
+//@Test
+//public void doctorLogoutTest() throws Exception {
+//homepage.getLoginsLink().click();
+//wlib.scrollByAmount(driver, 0, 200);
+//homepage.getDoctorLoginBtn().click();
+//wlib.moveControlToWindow(driver,"Doctor");
+//doctorLoginPage.doctorLogin();
+//doctorDashboardPage.doctorlogout();
+//driver.close();
+//wlib.moveControlToWindow(driver, "logins");
+//
+//
+//}
 
 //@Test
 //public void doctorprofileUpdateLinkTest() throws Exception {

@@ -26,8 +26,18 @@ public class PatientLoginPage {
 	@FindBy(xpath = "//a[contains(text(),'Forgot Password ?')]")
 	private WebElement ForgotPasswordLink;
 	
+	@FindBy(xpath = "//a[contains(text(),'Create an account')]")
+	private WebElement CreateAnAccount;
 	
 	
+	
+	
+	
+	
+
+	public WebElement getCreateAnAccount() {
+		return CreateAnAccount;
+	}
 
 	public WebElement getUsername() {
 		return Username;

@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class admindashboard {
+public class Admindashboard {
 
 	WebDriver driver;
 
-	public admindashboard(WebDriver driver) {
+	public Admindashboard(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

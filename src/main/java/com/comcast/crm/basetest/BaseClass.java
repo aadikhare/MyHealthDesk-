@@ -17,12 +17,15 @@ import com.comcast.crm.generic.fileutility.FileUtility;
 import com.comcast.crm.generic.webDriverUtility.JavaUtility;
 import com.comcast.crm.generic.webDriverUtility.WebDriverUtility;
 import com.comcast.crm.objectrepositoryutility.AdminLoginPage;
+import com.comcast.crm.objectrepositoryutility.Admindashboard;
 import com.comcast.crm.objectrepositoryutility.DoctorDashboardPage;
 import com.comcast.crm.objectrepositoryutility.DoctorLoginPage;
 import com.comcast.crm.objectrepositoryutility.HomePage;
 import com.comcast.crm.objectrepositoryutility.PatientLoginPage;
+import com.comcast.crm.objectrepositoryutility.PatientRegistrationPage;
 import com.comcast.crm.objectrepositoryutility.UserDashboardPage;
 import com.comcast.crm.objectrepositoryutility.UserEditProfile;
+import com.comcast.crm.objectrepositoryutility.manageuser;
 
 import java.io.IOException;
 
@@ -47,7 +50,11 @@ public class BaseClass {
 	public UserDashboardPage userDashboardPage;
 	public UserEditProfile userEditProfile;
 	public AdminLoginPage adminLoginPage;
+	public PatientRegistrationPage patientRegistrationPage;
+	public manageuser manageuserPage;
+	public Admindashboard admindashboard;
 	public DatabaseUtility dbLib = new DatabaseUtility();
+	public static WebDriver sdriver;
 	
 	
 	
@@ -67,6 +74,7 @@ public class BaseClass {
 		
 	
 	    driver=wlib.openWebBrowser(driver,BROWSER);
+	    sdriver=driver;
 	   // System.out.println(driver);
 	    driver.manage().window().maximize();
 	   
@@ -85,6 +93,9 @@ public class BaseClass {
 	 userDashboardPage = new UserDashboardPage(driver);
 	 userEditProfile =new UserEditProfile(driver);
 	 adminLoginPage= new AdminLoginPage(driver);
+	 patientRegistrationPage = new PatientRegistrationPage(driver); 
+	 manageuserPage = new manageuser(driver);
+	 admindashboard = new Admindashboard(driver);
 		
 	}
 	
@@ -98,7 +109,7 @@ public class BaseClass {
 	
 	@AfterClass
 	public void configAC() {
-	//driver.quit();
+	driver.quit();
 	}
 	@AfterSuite
 	public void configAS() {
