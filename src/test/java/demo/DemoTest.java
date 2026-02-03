@@ -332,6 +332,39 @@ wlib.moveControlToWindow(driver, "logins");
 
 }
 
+@Test
+public void bookAppointmentTest() throws Exception {
+homepage.getLoginsLink().click();
+wlib.scrollByAmount(driver, 0, 200);
+homepage.getPatientLoginBtn().click();
+wlib.moveControlToWindow(driver,"user-login");
+patientLoginPage.PatientLogin();
+System.out.println(driver.getTitle());
+userDashboardPage.getBookAppointmentLink().click();
+wlib.moveControlToWindow(driver, "Appointment");
+WebElement DoctorSpecialization =bookAppointmentPage.getDoctorSpecialization();
+WebElement Doctors  =bookAppointmentPage.getDoctors();
+
+wlib.selectOptions(DoctorSpecialization,"Internal Medicine");
+wlib.selectOptions(Doctors,"Praveenkumar");
+String date=javaLib.getrequiredDate(1);
+
+bookAppointmentPage.getDate().sendKeys(date);
+bookAppointmentPage.getTime().clear();
+bookAppointmentPage.getTime().sendKeys("5:30 PM");
+bookAppointmentPage.getSubmitBtn().click();
+Thread.sleep(200);
+wlib.switchToAlert(driver);
+driver.close();
+
+//driver.close();
+//wlib.moveControlToWindow(driver, "logins");
+
+
+
+}
+
+
 //@Test
 //public void doctorLogoutTest() throws Exception {
 //homepage.getLoginsLink().click();

@@ -18,6 +18,7 @@ import com.comcast.crm.generic.webDriverUtility.JavaUtility;
 import com.comcast.crm.generic.webDriverUtility.WebDriverUtility;
 import com.comcast.crm.objectrepositoryutility.AdminLoginPage;
 import com.comcast.crm.objectrepositoryutility.Admindashboard;
+import com.comcast.crm.objectrepositoryutility.BookAppointmentPage;
 import com.comcast.crm.objectrepositoryutility.DoctorDashboardPage;
 import com.comcast.crm.objectrepositoryutility.DoctorLoginPage;
 import com.comcast.crm.objectrepositoryutility.HomePage;
@@ -53,6 +54,7 @@ public class BaseClass {
 	public PatientRegistrationPage patientRegistrationPage;
 	public manageuser manageuserPage;
 	public Admindashboard admindashboard;
+	public BookAppointmentPage bookAppointmentPage;
 	public DatabaseUtility dbLib = new DatabaseUtility();
 	public static WebDriver sdriver;
 	
@@ -96,6 +98,7 @@ public class BaseClass {
 	 patientRegistrationPage = new PatientRegistrationPage(driver); 
 	 manageuserPage = new manageuser(driver);
 	 admindashboard = new Admindashboard(driver);
+	 bookAppointmentPage=new BookAppointmentPage(driver);
 		
 	}
 	
@@ -109,7 +112,7 @@ public class BaseClass {
 	
 	@AfterClass
 	public void configAC() {
-	driver.quit();
+	//driver.quit();
 	}
 	@AfterSuite
 	public void configAS() {

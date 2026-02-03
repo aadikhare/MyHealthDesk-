@@ -5,28 +5,13 @@
     <classes>
       <class name="demo.DemoTest">
         <methods>
-          <include name="configBS"/>
-          <include name="configAS"/>
-          <include name="patientupdategenderProfileTest"/>
-          <include name="patientUsernameTest"/>
-          <include name="doctorUsernameTest"/>
-          <include name="doctorLoginTest"/>
-          <include name="doctorPasswordTest"/>
-          <include name="patientLogoutTest"/>
-          <include name="patientLoginTest"/>
-          <include name="doctorPageLoginBtnTest"/>
           <include name="configBC"/>
+          <include name="configBS"/>
           <include name="configAC"/>
-          <include name="patientPasswordTest"/>
-          <include name="patientPageLoginBtnTest"/>
-          <include name="doctorLoginBtnTest"/>
-          <include name="patientLoginBtnTest"/>
+          <include name="configAS"/>
+          <include name="bookAppointmentTest"/>
           <include name="configBM"/>
           <include name="configAM"/>
-          <include name="patientForgotPasswordLinkTest"/>
-          <include name="doctorLogoutTest"/>
-          <include name="doctorForgotPasswordLinkTest"/>
-          <include name="patientupdateProfileTest"/>
         </methods>
       </class> <!-- demo.DemoTest -->
     </classes>

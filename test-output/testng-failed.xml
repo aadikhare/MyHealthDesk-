@@ -13,6 +13,7 @@
           <include name="patientupdategenderProfileTest"/>
           <include name="patientUsernameTest"/>
           <include name="doctorUsernameTest"/>
+          <include name="doctorLoginTest"/>
           <include name="doctorPasswordTest"/>
           <include name="patientLogoutTest"/>
           <include name="patientLoginTest"/>
@@ -20,13 +21,15 @@
           <include name="configBC"/>
           <include name="patientPasswordTest"/>
           <include name="configAC"/>
+          <include name="createuserAndDeleteUserTest"/>
           <include name="patientPageLoginBtnTest"/>
+          <include name="doctorLoginBtnTest"/>
           <include name="patientLoginBtnTest"/>
           <include name="configBM"/>
           <include name="configAM"/>
           <include name="patientForgotPasswordLinkTest"/>
+          <include name="doctorForgotPasswordLinkTest"/>
           <include name="patientupdateProfileTest"/>
-          <include name="doctorLogoutTest"/>
         </methods>
       </class> <!-- demo.DemoTest -->
     </classes>

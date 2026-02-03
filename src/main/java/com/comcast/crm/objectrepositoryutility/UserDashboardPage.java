@@ -15,7 +15,7 @@ public class UserDashboardPage {
 	@FindBy(xpath="//span[contains(text(),'Dashboard')]")
 	private WebElement DashbordLink;
 	
-	@FindBy(xpath="//span[text()='Book Appointment']")
+	@FindBy(xpath="//span[contains(text(),'Book Appointment') and @class='title']")
 	private WebElement BookAppointmentLink;
 	
 	@FindBy(xpath="//span[contains(text(),'Appointment History')]")
