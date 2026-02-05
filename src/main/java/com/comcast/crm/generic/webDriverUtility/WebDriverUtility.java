@@ -41,30 +41,57 @@ public class WebDriverUtility {
 	
 	/* Open Web Browser */
 	
-	public WebDriver openWebBrowser(WebDriver driver, String BROWSER) {
-      
 	
-	ChromeOptions options = new ChromeOptions();
-	options.addArguments("--disable-features=PasswordLeakDetection");
-	options.addArguments("--disable-save-password-bubble");
-	options.addArguments("--disable-notifications");
-	WebDriver driver1;
-		
-		if(BROWSER.equals("firefox")) {
-			driver1=new FirefoxDriver();
+	public WebDriver openWebBrowser(WebDriver driver, String BROWSER) {
+
+		WebDriver driver1;
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications");
+		options.addArguments("--disable-features=PasswordLeakDetection");
+		options.addArguments("--disable-save-password-bubble");
+
+		if (BROWSER.equals("Chrome")) {
+			driver1 = new ChromeDriver(options);
+
+		} else if (BROWSER.equals("firefox")) {
+			driver1 = new FirefoxDriver();
+		} else if (BROWSER.equals("edge")) {
+			driver1 = new EdgeDriver();
+		} else {
+			driver1 = new ChromeDriver();
 		}
-		else if(BROWSER.equals("chrome")) {
-			driver1=new ChromeDriver(options);
-		}
-		else if(BROWSER.equals("edge")) {
-			driver1=new EdgeDriver();
-		}
-		else
-		{
-			driver1=new ChromeDriver();
-		}
-	 return driver1;
+		return driver1;
 	}
+	
+//	public WebDriver openWebBrowser(WebDriver driver, String BROWSER) {
+//      
+//	
+//	ChromeOptions options = new ChromeOptions();
+//	
+////	options.addArguments("--disable-features=PasswordLeakDetection");
+////	options.addArguments("--disable-save-password-bubble");
+////	options.addArguments("--disable-notifications");
+//	WebDriver driver1;
+//	options.addArguments("--disable-notifications");
+//	options.addArguments("--disable-features=PasswordLeakDetection");
+//	options.addArguments("--disable-save-password-bubble");
+//		
+//	
+//		if(BROWSER.equals("firefox")) {
+//			driver1=new FirefoxDriver();
+//		}
+//		else if(BROWSER.equals("chrome")) {
+//			driver1=new ChromeDriver(options);
+//		}
+//		else if(BROWSER.equals("edge")) {
+//			driver1=new EdgeDriver();
+//		}
+//		else
+//		{
+//			driver1=new ChromeDriver();
+//		}
+//	 return driver1;
+//	}
 	
 	/*Select options from Drop down using visibleText*/
 	
